@@ -3,484 +3,289 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rahma Dawy — AI &amp; Data Science Engineer</title>
+<title>Rahma Dawy — AI &amp; Machine Learning Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #0d1017;
-    --bg-panel: #12151d;
-    --bg-panel-raised: #171b25;
-    --ink: #e9e7de;
-    --ink-dim: #9aa1b2;
-    --ink-faint: #5b6274;
-    --line: #262c3a;
-    --signal: #5eead4;
-    --signal-dim: rgba(94,234,212,0.35);
-    --warn: #f2a65a;
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'IBM Plex Sans', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
+    --bg:#0a0a0a;
+    --bg-raised:#131313;
+    --line: rgba(255,255,255,0.09);
+    --ink:#f2f1ed;
+    --ink-dim:#8f8d87;
+    --ink-faint:#535149;
+    --accent:#ff5a36;
+    --accent-dim: rgba(255,90,54,0.18);
+    --font-display:'Fraunces', serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
   }
-
-  *{margin:0; padding:0; box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
   body{
     background:var(--bg);
     color:var(--ink);
     font-family:var(--font-body);
     line-height:1.6;
     overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
+  ::selection{ background:var(--accent); color:#0a0a0a; }
+  a{ color:inherit; text-decoration:none; }
+  img{ display:block; max-width:100%; }
 
-  ::selection{ background:var(--signal); color:#0d1017; }
-
-  a{ color:inherit; }
-
-  .wrap{
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 32px;
-  }
-
-  /* ---------- scanline texture ---------- */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:5;
-    background:repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.012) 0px,
-      rgba(255,255,255,0.012) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-    opacity:0.4;
-  }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 40px; }
+  @media(max-width:640px){ .wrap{ padding:0 22px; } }
 
   /* ---------- nav ---------- */
   header{
-    position:fixed;
-    top:0; left:0; right:0;
-    z-index:50;
-    background:rgba(13,16,23,0.75);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    position:fixed; top:0; left:0; right:0; z-index:80;
+    padding:26px 0;
+    mix-blend-mode:difference;
   }
-  nav.wrap{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:64px;
-  }
-  .logo{
-    font-family:var(--font-mono);
-    font-size:14px;
-    letter-spacing:0.02em;
-    color:var(--ink);
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  .logo .dot{
-    width:7px; height:7px; border-radius:50%;
-    background:var(--signal);
-    box-shadow:0 0 8px var(--signal);
-    animation:pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse{
-    0%,100%{ opacity:1; }
-    50%{ opacity:0.35; }
-  }
-  .navlinks{
-    display:flex;
-    gap:28px;
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-  }
-  .navlinks a{
-    color:var(--ink-dim);
-    text-decoration:none;
-    position:relative;
-    padding-bottom:4px;
-    transition:color 0.25s;
-  }
-  .navlinks a:hover{ color:var(--signal); }
-  .navlinks a::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width:0; height:1px;
-    background:var(--signal);
-    transition:width 0.25s;
-  }
-  .navlinks a:hover::after{ width:100%; }
-  .navlinks{ display:none; }
+  nav.wrap{ display:flex; justify-content:space-between; align-items:center; }
+  .brand{ font-family:var(--font-display); font-size:18px; font-weight:600; letter-spacing:-0.01em; }
+  .navlinks{ display:none; gap:36px; font-size:13px; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.06em; }
   @media(min-width:760px){ .navlinks{ display:flex; } }
+  .navlinks a{ opacity:0.75; transition:opacity 0.2s; }
+  .navlinks a:hover{ opacity:1; }
 
   /* ---------- hero ---------- */
   .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:150px 0 80px;
     position:relative;
-    padding:168px 0 96px;
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
   }
   .hero-eyebrow{
     font-family:var(--font-mono);
     font-size:12.5px;
-    color:var(--signal);
     text-transform:uppercase;
     letter-spacing:0.14em;
-    margin-bottom:22px;
-    display:flex;
-    align-items:center;
-    gap:10px;
+    color:var(--ink-dim);
+    margin-bottom:28px;
+    display:flex; align-items:center; gap:10px;
   }
-  .hero-eyebrow::before{
-    content:"";
-    width:20px; height:1px;
-    background:var(--signal);
-  }
+  .hero-eyebrow::before{ content:""; width:34px; height:1px; background:var(--accent); }
   h1.hero-title{
     font-family:var(--font-display);
-    font-weight:600;
-    font-size:clamp(40px, 6.4vw, 76px);
-    line-height:1.03;
-    letter-spacing:-0.01em;
+    font-weight:500;
+    font-size:clamp(42px, 7.4vw, 104px);
+    line-height:1.0;
+    letter-spacing:-0.02em;
     max-width:15ch;
   }
-  h1.hero-title .accent{ color:var(--signal); }
+  h1.hero-title em{ font-style:italic; color:var(--accent); font-weight:500; }
   .hero-sub{
-    margin-top:26px;
-    max-width:56ch;
+    margin-top:36px;
+    max-width:52ch;
     font-size:17px;
     color:var(--ink-dim);
   }
-  .hero-meta{
-    margin-top:36px;
+  .hero-bottom{
+    margin-top:64px;
     display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
     flex-wrap:wrap;
-    gap:10px 14px;
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    color:var(--ink-faint);
+    gap:24px;
+    border-top:1px solid var(--line);
+    padding-top:28px;
   }
-  .hero-meta span{ display:flex; align-items:center; gap:6px; }
-  .hero-meta a{ color:var(--ink-dim); text-decoration:none; border-bottom:1px solid var(--line); transition:color 0.2s, border-color 0.2s; }
-  .hero-meta a:hover{ color:var(--signal); border-color:var(--signal); }
-
-  .hero-cta{
-    margin-top:44px;
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-  }
+  .hero-cta{ display:flex; gap:16px; flex-wrap:wrap; }
   .btn{
     font-family:var(--font-mono);
-    font-size:13px;
+    font-size:12.5px;
     letter-spacing:0.03em;
-    padding:13px 22px;
-    border-radius:2px;
-    text-decoration:none;
+    padding:14px 24px;
+    border-radius:100px;
     display:inline-flex;
     align-items:center;
     gap:8px;
-    transition:all 0.2s ease;
-  }
-  .btn-primary{
-    background:var(--signal);
-    color:#08110f;
-    font-weight:600;
-  }
-  .btn-primary:hover{ background:#82f1de; transform:translateY(-1px); }
-  .btn-ghost{
+    transition:all 0.25s ease;
     border:1px solid var(--line);
-    color:var(--ink-dim);
   }
-  .btn-ghost:hover{ border-color:var(--signal-dim); color:var(--ink); }
-
-  /* waveform */
-  .waveform{
-    position:absolute;
-    left:0; right:0; bottom:0;
-    height:150px;
-    opacity:0.9;
-    z-index:0;
-  }
-  .hero > .wrap{ position:relative; z-index:2; }
-  .hero::after{
-    content:"";
-    position:absolute;
-    left:0; right:0; bottom:0; height:150px;
-    background:linear-gradient(to top, var(--bg) 5%, transparent 100%);
-    z-index:1;
-  }
-
-  /* ---------- section shell ---------- */
-  section{ padding:88px 0; border-bottom:1px solid var(--line); position:relative; }
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    margin-bottom:48px;
-    gap:20px;
-    flex-wrap:wrap;
-  }
-  .section-label{
+  .btn-primary{ background:var(--accent); border-color:var(--accent); color:#0a0a0a; font-weight:600; }
+  .btn-primary:hover{ background:#ff7a5c; transform:translateY(-2px); }
+  .btn-ghost{ color:var(--ink-dim); }
+  .btn-ghost:hover{ color:var(--ink); border-color:var(--ink-faint); transform:translateY(-2px); }
+  .hero-tags{
+    display:flex; gap:10px; flex-wrap:wrap;
     font-family:var(--font-mono);
-    font-size:12.5px;
-    color:var(--signal);
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-  }
-  h2.section-title{
-    font-family:var(--font-display);
-    font-size:clamp(26px, 3.4vw, 36px);
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
-  .section-index{
-    font-family:var(--font-mono);
-    font-size:12px;
+    font-size:11.5px;
     color:var(--ink-faint);
   }
+  .hero-tags span{ border:1px solid var(--line); padding:6px 12px; border-radius:100px; }
 
-  .reveal{
-    opacity:0;
-    transform:translateY(18px);
-    transition:opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.in{ opacity:1; transform:translateY(0); }
-
-  /* ---------- about / signal readout ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1.3fr 1fr;
-    gap:56px;
-  }
-  @media(max-width:760px){ .about-grid{ grid-template-columns:1fr; } }
-  .about-text p{ color:var(--ink-dim); font-size:15.5px; margin-bottom:16px; max-width:60ch; }
-  .about-text strong{ color:var(--ink); font-weight:500; }
-
-  .readout{
-    background:var(--bg-panel);
-    border:1px solid var(--line);
-    padding:22px 24px;
-  }
-  .readout-title{
+  .scroll-cue{
+    position:absolute;
+    right:40px; bottom:36px;
+    writing-mode:vertical-rl;
     font-family:var(--font-mono);
     font-size:11px;
     color:var(--ink-faint);
-    text-transform:uppercase;
     letter-spacing:0.1em;
-    margin-bottom:16px;
-    display:flex;
-    justify-content:space-between;
+    display:flex; align-items:center; gap:10px;
   }
-  .readout-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:9px 0;
-    border-bottom:1px solid var(--line);
-    font-size:13.5px;
-  }
-  .readout-row:last-child{ border-bottom:none; }
-  .readout-row .k{ color:var(--ink-dim); }
-  .readout-row .v{ font-family:var(--font-mono); color:var(--signal); font-size:12.5px; }
+  .scroll-cue::after{ content:""; width:1px; height:44px; background:var(--ink-faint); }
+  @media(max-width:900px){ .scroll-cue{ display:none; } }
 
-  /* ---------- skills ---------- */
-  .skill-groups{
+  /* ---------- section shell ---------- */
+  section{ padding:120px 0; border-top:1px solid var(--line); }
+  .eyebrow-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:56px; flex-wrap:wrap; gap:16px;
+  }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase;
+    letter-spacing:0.14em; color:var(--accent);
+  }
+  .section-count{ font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); }
+  h2.section-title{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:clamp(30px, 4.2vw, 52px);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    max-width:16ch;
+  }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- about ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:70px; align-items:start; }
+  @media(max-width:800px){ .about-grid{ grid-template-columns:1fr; gap:40px; } }
+  .about-text p{ color:var(--ink-dim); font-size:16px; margin-bottom:18px; max-width:56ch; }
+  .about-text strong{ color:var(--ink); font-weight:500; }
+  .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .stat{ background:var(--bg); padding:26px 22px; }
+  .stat .num{ font-family:var(--font-display); font-size:34px; color:var(--accent); font-weight:500; }
+  .stat .label{ font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); margin-top:6px; text-transform:uppercase; letter-spacing:0.05em; }
+
+  /* ---------- work ---------- */
+  .work-list{ display:flex; flex-direction:column; }
+  .work-item{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
-    gap:1px;
-    background:var(--line);
+    grid-template-columns:0.9fr 1.1fr;
+    gap:48px;
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+    align-items:center;
+  }
+  .work-item:first-of-type{ padding-top:0; }
+  .work-item:last-of-type{ border-bottom:none; }
+  @media(max-width:860px){ .work-item{ grid-template-columns:1fr; gap:26px; } }
+  .work-item.reverse{ direction:rtl; }
+  .work-item.reverse > *{ direction:ltr; }
+
+  .work-visual{
+    position:relative;
+    aspect-ratio:4/3;
+    background:var(--bg-raised);
     border:1px solid var(--line);
+    overflow:hidden;
+    border-radius:6px;
   }
-  .skill-card{
-    background:var(--bg-panel);
-    padding:26px;
+  .work-visual img{ width:100%; height:100%; object-fit:cover; object-position:top; }
+  .work-visual svg{ width:100%; height:100%; }
+  .work-visual .badge{
+    position:absolute; top:14px; left:14px;
+    font-family:var(--font-mono); font-size:10.5px;
+    color:var(--ink-dim); background:rgba(10,10,10,0.6);
+    border:1px solid var(--line); padding:4px 9px; border-radius:100px;
+    backdrop-filter:blur(4px);
   }
-  .skill-card h3{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--warn);
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    margin-bottom:14px;
+
+  .work-index{ font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); margin-bottom:14px; }
+  .work-domain{ font-family:var(--font-mono); font-size:11.5px; color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
+  .work-title{ font-family:var(--font-display); font-size:clamp(22px,2.6vw,30px); font-weight:500; margin-bottom:16px; line-height:1.16; }
+  .work-desc{ color:var(--ink-dim); font-size:14.5px; margin-bottom:20px; max-width:52ch; }
+  .work-metrics{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px; }
+  .work-metrics span{
+    font-family:var(--font-mono); font-size:11.5px; color:var(--ink);
+    border:1px solid var(--line); padding:5px 10px; border-radius:100px;
   }
-  .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; }
-  .skill-tags span{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--ink-dim);
-    border:1px solid var(--line);
-    padding:5px 10px;
-    border-radius:2px;
+  .work-links{ display:flex; gap:18px; flex-wrap:wrap; }
+  .work-links a{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--ink);
+    display:inline-flex; align-items:center; gap:6px;
+    border-bottom:1px solid var(--ink-faint);
+    padding-bottom:2px;
     transition:border-color 0.2s, color 0.2s;
   }
-  .skill-tags span:hover{ border-color:var(--signal-dim); color:var(--ink); }
+  .work-links a:hover{ color:var(--accent); border-color:var(--accent); }
+
+  /* ---------- focus areas (numbered, ricardo-style) ---------- */
+  .focus-grid{ display:flex; flex-direction:column; }
+  .focus-item{
+    display:grid;
+    grid-template-columns:80px 1fr 1.4fr;
+    gap:32px;
+    padding:34px 0;
+    border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .focus-item:last-child{ border-bottom:none; }
+  @media(max-width:760px){ .focus-item{ grid-template-columns:50px 1fr; } .focus-item .focus-desc{ grid-column:1 / -1; margin-top:8px; } }
+  .focus-num{ font-family:var(--font-mono); font-size:13px; color:var(--accent); }
+  .focus-name{ font-family:var(--font-display); font-size:20px; font-weight:500; }
+  .focus-desc{ color:var(--ink-dim); font-size:14.5px; max-width:50ch; }
 
   /* ---------- experience ---------- */
-  .timeline{ position:relative; }
-  .exp-item{
-    display:grid;
-    grid-template-columns:170px 1fr;
-    gap:28px;
-    padding:28px 0;
-    border-bottom:1px solid var(--line);
-  }
+  .exp-item{ display:grid; grid-template-columns:160px 1fr; gap:28px; padding:30px 0; border-bottom:1px solid var(--line); }
   .exp-item:first-child{ padding-top:0; }
   .exp-item:last-child{ border-bottom:none; }
   @media(max-width:640px){ .exp-item{ grid-template-columns:1fr; gap:8px; } }
-  .exp-date{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--ink-faint);
-    padding-top:3px;
-  }
-  .exp-role{ font-family:var(--font-display); font-size:18px; font-weight:600; margin-bottom:4px; }
-  .exp-org{ font-family:var(--font-mono); font-size:12.5px; color:var(--signal); margin-bottom:12px; }
+  .exp-date{ font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); padding-top:3px; }
+  .exp-role{ font-family:var(--font-display); font-size:20px; font-weight:500; margin-bottom:4px; }
+  .exp-org{ font-family:var(--font-mono); font-size:12.5px; color:var(--accent); margin-bottom:14px; }
   .exp-item ul{ padding-left:18px; color:var(--ink-dim); font-size:14.5px; }
   .exp-item li{ margin-bottom:7px; }
-  .exp-item li::marker{ color:var(--ink-faint); }
-
-  /* ---------- projects ---------- */
-  .project-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(310px, 1fr));
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-  }
-  .project-card{
-    background:var(--bg-panel);
-    padding:28px;
-    display:flex;
-    flex-direction:column;
-    transition:background 0.25s;
-  }
-  .project-card:hover{ background:var(--bg-panel-raised); }
-  .project-tag{
-    font-family:var(--font-mono);
-    font-size:11px;
-    color:var(--ink-faint);
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    margin-bottom:12px;
-  }
-  .project-card h3{
-    font-family:var(--font-display);
-    font-size:19px;
-    font-weight:600;
-    margin-bottom:10px;
-    line-height:1.25;
-  }
-  .project-card p.desc{
-    color:var(--ink-dim);
-    font-size:14px;
-    margin-bottom:18px;
-    flex-grow:1;
-  }
-  .metric-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:auto;
-  }
-  .metric{
-    font-family:var(--font-mono);
-    font-size:11.5px;
-    color:var(--signal);
-    background:rgba(94,234,212,0.06);
-    border:1px solid var(--signal-dim);
-    padding:5px 9px;
-    border-radius:2px;
-  }
-  .stack-row{
-    margin-top:14px;
-    font-family:var(--font-mono);
-    font-size:11px;
-    color:var(--ink-faint);
-  }
-
-  /* ---------- certifications ---------- */
-  .cert-list{ display:flex; flex-direction:column; }
-  .cert-row{
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:12px;
-    padding:20px 0;
-    border-bottom:1px solid var(--line);
-    align-items:baseline;
-  }
-  .cert-row:last-child{ border-bottom:none; }
-  .cert-name{ font-family:var(--font-display); font-size:16.5px; font-weight:500; }
-  .cert-org{ font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); margin-top:4px; }
-  .cert-date{ font-family:var(--font-mono); font-size:12px; color:var(--ink-faint); white-space:nowrap; }
-
-  .lang-strip{
-    margin-top:32px;
-    display:flex;
-    gap:28px;
-    flex-wrap:wrap;
-  }
-  .lang-item{ font-family:var(--font-mono); font-size:12.5px; color:var(--ink-dim); }
-  .lang-item b{ color:var(--ink); }
 
   /* ---------- contact ---------- */
-  .contact{ border-bottom:none; padding-bottom:64px; }
-  .contact-inner{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:28px;
-  }
-  .contact h2{
+  .contact{ border-bottom:none; }
+  .contact-title{
     font-family:var(--font-display);
-    font-size:clamp(30px, 5vw, 48px);
-    font-weight:600;
+    font-size:clamp(36px, 7vw, 88px);
+    font-weight:500;
+    line-height:1.0;
+    letter-spacing:-0.02em;
     max-width:14ch;
-    line-height:1.08;
   }
-  .contact h2 .accent{ color:var(--signal); }
-  .contact-links{
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-  }
-  footer{
-    padding:28px 0 40px;
-    font-family:var(--font-mono);
-    font-size:11.5px;
-    color:var(--ink-faint);
+  .contact-title em{ font-style:italic; color:var(--accent); }
+  .contact-row{
+    margin-top:52px;
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
-    gap:8px;
+    gap:32px;
+    border-top:1px solid var(--line);
+    padding-top:32px;
+  }
+  .contact-links{ display:flex; gap:16px; flex-wrap:wrap; }
+  .contact-meta{ font-family:var(--font-mono); font-size:12.5px; color:var(--ink-faint); }
+
+  footer{
+    padding:32px 0 44px;
+    font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
   }
 
-  @media(prefers-reduced-motion: reduce){
-    *{ animation:none !important; transition:none !important; }
-  }
+  @media(prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
 </style>
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <div class="logo"><span class="dot"></span>RD // SIGNAL</div>
+    <div class="brand">Rahma Dawy</div>
     <div class="navlinks">
+      <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="#skills">Stack</a>
       <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#certs">Certs</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -489,122 +294,227 @@
 <section class="hero">
   <div class="wrap">
     <div class="hero-eyebrow">AI &amp; Data Science &mdash; EJUST, Alexandria</div>
-    <h1 class="hero-title">Turning raw signal into <span class="accent">machines that listen, see, and predict.</span></h1>
-    <p class="hero-sub">I'm Rahma Dawy &mdash; I build end-to-end ML pipelines across speech, vision, and biomedical
-    signals: fine-tuning Whisper on Egyptian Arabic, decoding EEG with CNN&ndash;LSTM hybrids, and training
-    diffusion models to synthesize clinical X-rays. I work in the space between noisy data and a model that
-    actually generalizes.</p>
-    <div class="hero-meta">
-      <span>Alexandria, Egypt</span>
-      <span>&middot;</span>
-      <span><a href="mailto:rahmadawy16@gmail.com">rahmadawy16@gmail.com</a></span>
-      <span>&middot;</span>
-      <span><a href="https://github.com/RahmaDawy" target="_blank" rel="noopener">github.com/RahmaDawy</a></span>
-      <span>&middot;</span>
-      <span><a href="https://linkedin.com/in/rahmadawy" target="_blank" rel="noopener">linkedin.com/in/rahmadawy</a></span>
-    </div>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#projects">View projects &rarr;</a>
-      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    <h1 class="hero-title">I build models that <em>listen, see,</em> and predict.</h1>
+    <p class="hero-sub">End-to-end machine learning across speech recognition, computer vision, generative AI,
+    and biomedical signal processing &mdash; from raw, noisy data to a system that ships and actually generalizes.</p>
+    <div class="hero-bottom">
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#work">View work</a>
+        <a class="btn btn-ghost" href="https://github.com/RahmaDawy" target="_blank" rel="noopener">GitHub &rarr;</a>
+      </div>
+      <div class="hero-tags">
+        <span>PyTorch</span><span>NLP / ASR</span><span>Computer Vision</span><span>Generative AI</span><span>Signal Processing</span>
+      </div>
     </div>
   </div>
-  <svg class="waveform" viewBox="0 0 1200 150" preserveAspectRatio="none">
-    <path id="wavepath" fill="none" stroke="#5eead4" stroke-width="1.4" stroke-opacity="0.55" />
-    <path id="wavepath2" fill="none" stroke="#f2a65a" stroke-width="1" stroke-opacity="0.25" />
-  </svg>
+  <div class="scroll-cue">Scroll</div>
 </section>
 
 <section id="about">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-label">00 &mdash; Overview</div>
-        <h2 class="section-title">About</h2>
-      </div>
-      <div class="section-index">EJUST / AI &amp; DS / 2023&ndash;present</div>
+    <div class="eyebrow-row">
+      <div><div class="eyebrow">About</div><h2 class="section-title">Rigor from data to deployment.</h2></div>
+      <div class="section-count">01 / 05</div>
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
         <p>I'm an <strong>AI &amp; Data Science undergraduate at Egypt-Japan University of Science &amp; Technology</strong>,
-        with hands-on experience shipping full ML pipelines rather than notebooks that stop at a metric. My work spans
-        <strong>NLP and speech (ASR)</strong>, <strong>computer vision</strong>, <strong>generative AI</strong>, and
-        <strong>biomedical signal processing</strong> &mdash; usually the parts other people skip: preprocessing,
-        feature engineering, and rigorous evaluation with the right domain metric, not just accuracy.</p>
-        <p>I'm proficient in <strong>Python, PyTorch, and Scikit-learn</strong>, comfortable across the full loop of
-        preprocessing complex datasets, fine-tuning deep learning models, and evaluating them with metrics that
-        actually matter for the domain &mdash; WER and CER for speech, FID for generative fidelity, F1 and AUC-ROC
-        for classification, R&sup2; for regression. I'm currently looking for a <strong>Junior AI/ML Engineer
-        internship</strong> where I can bring that same rigor to real production problems.</p>
+        working across NLP, computer vision, generative AI, and biomedical signal processing. I care about the parts
+        most people skip &mdash; preprocessing, feature engineering, and evaluating with the metric that actually
+        matters for the domain, not just accuracy: WER and CER for speech, FID for generative fidelity, AUC-ROC and
+        F1 for classification, R&sup2; for regression.</p>
+        <p>I'm proficient in <strong>Python, PyTorch, and Scikit-learn</strong>, and I've shipped full pipelines end
+        to end &mdash; fine-tuned models deployed live on HuggingFace Hub, dashboards in production, MLOps loops with
+        automated checkpointing. Currently looking for a <strong>Junior AI/ML Engineer internship</strong> to bring
+        that same rigor to real products.</p>
       </div>
-      <div class="readout reveal">
-        <div class="readout-title"><span>signal.status</span><span>live</span></div>
-        <div class="readout-row"><span class="k">Focus areas</span><span class="v">ASR / CV / GenAI / BCI</span></div>
-        <div class="readout-row"><span class="k">Core frameworks</span><span class="v">PyTorch, TensorFlow</span></div>
-        <div class="readout-row"><span class="k">Languages</span><span class="v">Python, C++, SQL, JS</span></div>
-        <div class="readout-row"><span class="k">Seeking</span><span class="v">ML/AI internship</span></div>
-        <div class="readout-row"><span class="k">Based in</span><span class="v">Alexandria, EG</span></div>
+      <div class="stat-grid reveal">
+        <div class="stat"><div class="num">97%</div><div class="label">EEG identification accuracy</div></div>
+        <div class="stat"><div class="num">15K</div><div class="label">Arabic speech samples fine-tuned</div></div>
+        <div class="stat"><div class="num">0.986</div><div class="label">AUC-ROC, blood cell classifier</div></div>
+        <div class="stat"><div class="num">6</div><div class="label">End-to-end ML systems shipped</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<section id="work">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-label">01 &mdash; Stack</div>
-        <h2 class="section-title">Technical skills</h2>
-      </div>
-      <div class="section-index">languages / frameworks / tools</div>
+    <div class="eyebrow-row">
+      <div><div class="eyebrow">Featured work</div><h2 class="section-title">Six systems, built end to end.</h2></div>
+      <div class="section-count">02 / 05</div>
     </div>
-    <div class="skill-groups reveal">
-      <div class="skill-card">
-        <h3>Languages</h3>
-        <div class="skill-tags">
-          <span>Python</span><span>C++</span><span>JavaScript</span><span>SQL</span>
+
+    <div class="work-list">
+
+      <div class="work-item reveal">
+        <div class="work-visual">
+          <span class="badge">Live demo</span>
+          <img src="assets/whisper-demo.png" alt="Egyptian Arabic Speech-to-Text Gradio demo interface">
+        </div>
+        <div>
+          <div class="work-index">01</div>
+          <div class="work-domain">NLP &middot; Speech &middot; PyTorch</div>
+          <h3 class="work-title">Arabic Speech Recognition &mdash; Fine-tuned Whisper</h3>
+          <p class="work-desc">Fine-tuned OpenAI Whisper-small on 15,000 Egyptian Arabic samples with Seq2SeqTrainer,
+          cosine LR, fp16, gradient checkpointing, and early stopping. Diacritization removal, alif normalization,
+          and SpecAugment in the preprocessing pipeline. Deployed to HuggingFace Hub with a live Gradio demo for
+          mic and file transcription.</p>
+          <div class="work-metrics"><span>15K samples</span><span>WER / CER tracked</span><span>live on HF Hub</span></div>
+          <div class="work-links">
+            <a href="https://huggingface.co/spaces/RahmaDawi/arabic-asr-demo" target="_blank" rel="noopener">Try the demo &rarr;</a>
+            <a href="https://github.com/RahmaDawy" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
         </div>
       </div>
-      <div class="skill-card">
-        <h3>ML / DL frameworks</h3>
-        <div class="skill-tags">
-          <span>PyTorch</span><span>TensorFlow</span><span>Keras</span><span>Scikit-learn</span>
+
+      <div class="work-item reverse reveal">
+        <div class="work-visual">
+          <span class="badge">CTC / MFCC</span>
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#131313"/>
+            <g id="mfcc-grid"></g>
+          </svg>
+        </div>
+        <div>
+          <div class="work-index">02</div>
+          <div class="work-domain">Deep Learning &middot; Signal Processing</div>
+          <h3 class="work-title">Arabic ASR &mdash; Custom CNN + Bi-LSTM with CTC</h3>
+          <p class="work-desc">A hybrid CNN + Bidirectional LSTM built from scratch with CTC loss for character-level
+          Arabic ASR. 120-dim MFCC + delta + delta-delta features with FIR filtering and Z-score normalization.
+          Full MLOps loop: Drive checkpointing via rclone, automatic HF uploads on best validation loss, OneCycleLR,
+          gradient clipping.</p>
+          <div class="work-metrics"><span>120-dim MFCC</span><span>greedy CTC decode</span><span>auto checkpointing</span></div>
+          <div class="work-links">
+            <a href="https://huggingface.co/spaces/RahmaDawi/arabic-asr-demo-lstm" target="_blank" rel="noopener">Try the demo &rarr;</a>
+            <a href="https://github.com/RahmaDawy" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
         </div>
       </div>
-      <div class="skill-card">
-        <h3>Deep learning</h3>
-        <div class="skill-tags">
-          <span>CNNs</span><span>RNNs / LSTMs</span><span>Bi-LSTM</span><span>Transformers</span><span>U-Net</span><span>Latent Diffusion</span><span>Whisper</span><span>Transfer Learning</span>
+
+      <div class="work-item reveal">
+        <div class="work-visual">
+          <span class="badge">8-class CV</span>
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#131313"/>
+            <g id="cell-grid"></g>
+          </svg>
+        </div>
+        <div>
+          <div class="work-index">03</div>
+          <div class="work-domain">Computer Vision &middot; Scikit-learn</div>
+          <h3 class="work-title">Automated Blood Cell Classification</h3>
+          <p class="work-desc">An 8-class blood cell classifier across 1,600 images. Benchmarked 8 CNN architectures
+          as frozen feature extractors, fusing deep features with handcrafted LBP, GLCM, and RGB+HSV histograms via
+          PCA + SelectKBest. Segmentation pipeline: bilateral filtering, CLAHE, Otsu thresholding, Watershed.</p>
+          <div class="work-metrics"><span>86.25% accuracy</span><span>AUC-ROC 0.986</span><span>&kappa; 0.843</span></div>
+          <div class="work-links">
+            <a href="https://github.com/RahmaDawy" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
         </div>
       </div>
-      <div class="skill-card">
-        <h3>NLP &amp; speech</h3>
-        <div class="skill-tags">
-          <span>ASR</span><span>Fine-tuning</span><span>Text normalization</span><span>Diacritization</span><span>Speaker recognition</span><span>WER / CER</span><span>CTC loss</span>
+
+      <div class="work-item reverse reveal">
+        <div class="work-visual">
+          <span class="badge">Latent diffusion</span>
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#131313"/>
+            <g id="diffusion-grid"></g>
+          </svg>
+        </div>
+        <div>
+          <div class="work-index">04</div>
+          <div class="work-domain">Generative AI &middot; Medical Imaging</div>
+          <h3 class="work-title">Chest X-Ray Synthesis with Latent Diffusion</h3>
+          <p class="work-desc">A Latent Diffusion Model (U-Net / Stable Diffusion architecture) trained to
+          synthesize clinically realistic pneumonia chest X-rays, addressing medical training data scarcity.
+          Evaluated with FID and clinical fidelity metrics, then measured the downstream classifier lift from
+          synthetic augmentation.</p>
+          <div class="work-metrics"><span>FID scored</span><span>downstream lift measured</span></div>
+          <div class="work-links">
+            <a href="https://github.com/RahmaDawy" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
         </div>
       </div>
-      <div class="skill-card">
-        <h3>Computer vision</h3>
-        <div class="skill-tags">
-          <span>Image classification</span><span>Segmentation</span><span>Feature fusion</span><span>Generative AI</span><span>Medical imaging</span>
+
+      <div class="work-item reveal">
+        <div class="work-visual">
+          <span class="badge">109 subjects</span>
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#131313"/>
+            <g id="eeg-grid"></g>
+          </svg>
+        </div>
+        <div>
+          <div class="work-index">05</div>
+          <div class="work-domain">Signal Processing &middot; BCI</div>
+          <h3 class="work-title">EEG Biometric Identification &mdash; Hybrid CRNN</h3>
+          <p class="work-desc">Identified 109 subjects from resting-state EEG using a CNN + LSTM hybrid trained on
+          STFT spectrograms from the PhysioNet dataset. Full DSP pipeline: FIR bandpass (1&ndash;40 Hz), epoch
+          segmentation, Z-score normalization, STFT time-frequency extraction.</p>
+          <div class="work-metrics"><span>97% accuracy</span><span>F1 0.97</span><span>109 subjects</span></div>
+          <div class="work-links">
+            <a href="https://github.com/RahmaDawy/EEG-Biometric-Identification-Using-CNN-RNN" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
         </div>
       </div>
-      <div class="skill-card">
-        <h3>Data science</h3>
-        <div class="skill-tags">
-          <span>Pandas</span><span>NumPy</span><span>SciPy</span><span>PCA / SVD / LDA</span><span>SelectKBest</span><span>Statistical analysis</span>
+
+      <div class="work-item reverse reveal">
+        <div class="work-visual">
+          <span class="badge">Regression + PCA</span>
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="300" fill="#131313"/>
+            <g id="solar-grid"></g>
+          </svg>
+        </div>
+        <div>
+          <div class="work-index">06</div>
+          <div class="work-domain">Predictive Modeling &middot; Feature Engineering</div>
+          <h3 class="work-title">Solar PV Power Forecasting &mdash; Aswan, Egypt</h3>
+          <p class="work-desc">Classification and regression pipelines (MLP, Decision Tree, KNN) forecasting solar
+          PV output from meteorological sensor data. PCA, SVD, and LDA for dimensionality reduction, with feature
+          significance validated via ANOVA and T-tests.</p>
+          <div class="work-metrics"><span>73.4% accuracy</span><span>R&sup2; 0.70</span><span>Willmott 0.91</span></div>
+          <div class="work-links">
+            <a href="https://github.com/RahmaDawy/Solar-Power-Prediction-Egypt" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+          </div>
         </div>
       </div>
-      <div class="skill-card">
-        <h3>Visualization</h3>
-        <div class="skill-tags">
-          <span>Power BI</span><span>Matplotlib</span><span>Seaborn</span><span>t-SNE</span><span>ROC / AUC</span>
-        </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <div class="eyebrow-row">
+      <div><div class="eyebrow">Focus areas</div><h2 class="section-title">Where I go deep.</h2></div>
+      <div class="section-count">03 / 05</div>
+    </div>
+    <div class="focus-grid reveal">
+      <div class="focus-item">
+        <div class="focus-num">01</div>
+        <div class="focus-name">Speech &amp; NLP</div>
+        <div class="focus-desc">Fine-tuning and training ASR models from scratch &mdash; Whisper, CTC-based
+        architectures, dialect-specific preprocessing, and rigorous WER/CER evaluation.</div>
       </div>
-      <div class="skill-card">
-        <h3>Tools &amp; platforms</h3>
-        <div class="skill-tags">
-          <span>Git</span><span>Linux</span><span>Colab</span><span>Kaggle</span><span>HuggingFace Hub</span><span>Gradio</span><span>REST APIs</span><span>MongoDB</span><span>SQLite</span>
-        </div>
+      <div class="focus-item">
+        <div class="focus-num">02</div>
+        <div class="focus-name">Computer Vision</div>
+        <div class="focus-desc">Classification and segmentation pipelines combining deep features with classical
+        image processing &mdash; CLAHE, Otsu, Watershed &mdash; for domains like medical imaging.</div>
+      </div>
+      <div class="focus-item">
+        <div class="focus-num">03</div>
+        <div class="focus-name">Generative AI</div>
+        <div class="focus-desc">Latent diffusion and U-Net architectures for synthetic data generation, evaluated
+        on FID and downstream task lift rather than visual quality alone.</div>
+      </div>
+      <div class="focus-item">
+        <div class="focus-num">04</div>
+        <div class="focus-name">Biomedical Signal Processing</div>
+        <div class="focus-desc">DSP pipelines for EEG and audio &mdash; FIR filtering, STFT, MFCC &mdash; feeding
+        hybrid CNN/LSTM models for biometric and speech tasks.</div>
       </div>
     </div>
   </div>
@@ -612,23 +522,20 @@
 
 <section id="experience">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-label">02 &mdash; Track record</div>
-        <h2 class="section-title">Experience</h2>
-      </div>
-      <div class="section-index">2024 &ndash; present</div>
+    <div class="eyebrow-row">
+      <div><div class="eyebrow">Experience</div><h2 class="section-title">Where I've worked.</h2></div>
+      <div class="section-count">04 / 05</div>
     </div>
-    <div class="timeline reveal">
+    <div class="reveal">
       <div class="exp-item">
         <div class="exp-date">Jun 2025 &ndash; Dec 2025<br>Remote</div>
         <div>
           <div class="exp-role">Data Analysis Intern</div>
           <div class="exp-org">Digital Egypt Pioneers Initiative (DEPI)</div>
           <ul>
-            <li>Designed and automated data cleaning, preprocessing, and validation pipelines in Python and SQL, ensuring high-quality structured datasets for downstream ML and BI workflows.</li>
-            <li>Built interactive Power BI dashboards tracking key KPIs across structured datasets, enabling data-driven decision-making for stakeholders.</li>
-            <li>Applied statistical analysis and feature engineering techniques to surface actionable insights from raw data.</li>
+            <li>Designed and automated data cleaning, preprocessing, and validation pipelines in Python and SQL for downstream ML and BI workflows.</li>
+            <li>Built interactive Power BI dashboards tracking key KPIs across structured datasets.</li>
+            <li>Applied statistical analysis and feature engineering to surface actionable insights from raw data.</li>
           </ul>
         </div>
       </div>
@@ -647,158 +554,18 @@
   </div>
 </section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-label">03 &mdash; Applied work</div>
-        <h2 class="section-title">Projects</h2>
-      </div>
-      <div class="section-index">6 systems, end to end</div>
-    </div>
-    <div class="project-grid reveal">
-
-      <div class="project-card">
-        <div class="project-tag">NLP &middot; Speech &middot; PyTorch</div>
-        <h3>Arabic Speech Recognition &mdash; Fine-tuned Whisper</h3>
-        <p class="desc">Fine-tuned OpenAI Whisper-small on 15,000 Egyptian Arabic samples with Seq2SeqTrainer,
-        cosine LR, fp16, gradient checkpointing, and early stopping. Built a full preprocessing pipeline &mdash;
-        diacritization removal, alif normalization, peak normalization, SpecAugment &mdash; then deployed to
-        HuggingFace Hub with a live Gradio demo for mic and file transcription.</p>
-        <div class="metric-row">
-          <span class="metric">15K samples</span>
-          <span class="metric">WER / CER tracked</span>
-          <span class="metric">deployed on HF Hub</span>
-        </div>
-        <div class="stack-row">Whisper &middot; Seq2SeqTrainer &middot; HuggingFace &middot; Gradio</div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-tag">Deep Learning &middot; Signal Processing</div>
-        <h3>Arabic ASR &mdash; Custom CNN + Bi-LSTM with CTC</h3>
-        <p class="desc">Designed a hybrid CNN + Bidirectional LSTM from scratch with CTC loss for character-level
-        Arabic ASR. Extracted 120-dim MFCC + delta + delta-delta features with FIR filtering and Z-score
-        normalization. Full MLOps loop: Drive checkpointing via rclone, auto HF uploads on best val loss,
-        OneCycleLR, gradient clipping.</p>
-        <div class="metric-row">
-          <span class="metric">120-dim MFCC</span>
-          <span class="metric">greedy CTC decode</span>
-          <span class="metric">auto checkpointing</span>
-        </div>
-        <div class="stack-row">PyTorch &middot; CTC loss &middot; rclone &middot; Gradio</div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-tag">Computer Vision &middot; Scikit-learn</div>
-        <h3>Automated Blood Cell Classification</h3>
-        <p class="desc">8-class blood cell classifier across a 1,600-image dataset. Benchmarked 8 CNN
-        architectures as frozen feature extractors, fusing deep features with handcrafted LBP, GLCM, and
-        RGB+HSV histograms via PCA + SelectKBest. Segmentation pipeline: bilateral filtering, CLAHE,
-        Otsu thresholding, Watershed.</p>
-        <div class="metric-row">
-          <span class="metric">86.25% acc</span>
-          <span class="metric">AUC-ROC 0.986</span>
-          <span class="metric">&kappa; 0.843</span>
-        </div>
-        <div class="stack-row">VGG / ResNet / EfficientNet / DenseNet &middot; PCA &middot; ANOVA F-test</div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-tag">Generative AI &middot; Medical Imaging</div>
-        <h3>Chest X-Ray Synthesis with Latent Diffusion</h3>
-        <p class="desc">Trained a Latent Diffusion Model (U-Net / Stable Diffusion architecture) to synthesize
-        clinically realistic pneumonia chest X-rays, addressing medical training data scarcity. Evaluated with
-        FID and clinical fidelity metrics, then measured downstream classifier improvement from synthetic
-        augmentation.</p>
-        <div class="metric-row">
-          <span class="metric">FID scored</span>
-          <span class="metric">downstream lift measured</span>
-        </div>
-        <div class="stack-row">PyTorch &middot; U-Net &middot; Stable Diffusion architecture</div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-tag">Signal Processing &middot; BCI</div>
-        <h3>EEG Biometric Identification &mdash; Hybrid CRNN</h3>
-        <p class="desc">Identified 109 subjects from resting-state EEG using a CNN + LSTM hybrid trained on
-        STFT spectrograms from the PhysioNet dataset. Full DSP pipeline: FIR bandpass (1&ndash;40 Hz), epoch
-        segmentation, Z-score normalization, STFT time-frequency extraction.</p>
-        <div class="metric-row">
-          <span class="metric">97% accuracy</span>
-          <span class="metric">F1 0.97</span>
-          <span class="metric">109 subjects</span>
-        </div>
-        <div class="stack-row">CNN + LSTM &middot; STFT &middot; PhysioNet</div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-tag">Predictive Modeling &middot; Feature Engineering</div>
-        <h3>Solar PV Power Forecasting &mdash; Aswan, Egypt</h3>
-        <p class="desc">Classification and regression pipelines (MLP, Decision Tree, KNN) forecasting solar PV
-        output from meteorological sensor data. Applied PCA, SVD, and LDA for dimensionality reduction, and
-        validated feature significance with ANOVA and T-tests.</p>
-        <div class="metric-row">
-          <span class="metric">73.4% acc</span>
-          <span class="metric">R&sup2; 0.70</span>
-          <span class="metric">Willmott 0.91</span>
-        </div>
-        <div class="stack-row">Scikit-learn &middot; PCA / SVD / LDA</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="certs">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="section-label">04 &mdash; Credentials</div>
-        <h2 class="section-title">Certifications &amp; achievements</h2>
-      </div>
-      <div class="section-index">2023 &ndash; 2025</div>
-    </div>
-    <div class="cert-list reveal">
-      <div class="cert-row">
-        <div>
-          <div class="cert-name">HCIA DataCom V1</div>
-          <div class="cert-org">Huawei &mdash; networking, routing, switching, and troubleshooting on Huawei infrastructure</div>
-        </div>
-        <div class="cert-date">Aug 2024</div>
-      </div>
-      <div class="cert-row">
-        <div>
-          <div class="cert-name">CS50: Introduction to Computer Science</div>
-          <div class="cert-org">Harvard University &mdash; algorithms, data structures, and systems programming</div>
-        </div>
-        <div class="cert-date">2023</div>
-      </div>
-      <div class="cert-row">
-        <div>
-          <div class="cert-name">Backend Development Bootcamp</div>
-          <div class="cert-org">Coach Academy &mdash; Node.js, Express.js, MongoDB, REST API architecture</div>
-        </div>
-        <div class="cert-date">Jan&ndash;Jul 2025</div>
-      </div>
-    </div>
-    <div class="lang-strip">
-      <div class="lang-item">English &mdash; <b>C1 Advanced</b></div>
-      <div class="lang-item">French &mdash; <b>DALF C1 / DELF B2</b></div>
-    </div>
-  </div>
-</section>
-
 <section id="contact" class="contact">
-  <div class="wrap contact-inner">
-    <div class="section-label">05 &mdash; Contact</div>
-    <h2>Let's build something <span class="accent">that ships.</span></h2>
-    <p style="color:var(--ink-dim); max-width:50ch; font-size:15px;">Open to Junior ML/AI Engineer internships and
-    collaborations across speech, vision, and applied data science. Reach out &mdash; I reply fast.</p>
-    <div class="contact-links">
-      <a class="btn btn-primary" href="mailto:rahmadawy16@gmail.com">rahmadawy16@gmail.com</a>
-      <a class="btn btn-ghost" href="https://github.com/RahmaDawy" target="_blank" rel="noopener">GitHub &rarr;</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/rahmadawy" target="_blank" rel="noopener">LinkedIn &rarr;</a>
-      <a class="btn btn-ghost" href="tel:+201203169857">+20 120 316 9857</a>
+  <div class="wrap">
+    <div class="eyebrow">Contact &mdash; 05 / 05</div>
+    <h2 class="contact-title" style="margin-top:20px;">Let's build something <em>that ships.</em></h2>
+    <div class="contact-row">
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:rahmadawy16@gmail.com">rahmadawy16@gmail.com</a>
+        <a class="btn btn-ghost" href="https://github.com/RahmaDawy" target="_blank" rel="noopener">GitHub &rarr;</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/rahmadawy" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+        <a class="btn btn-ghost" href="tel:+201203169857">+20 120 316 9857</a>
+      </div>
+      <div class="contact-meta">Alexandria, Egypt &middot; Open to Junior ML/AI Engineer internships</div>
     </div>
   </div>
 </section>
@@ -809,29 +576,97 @@
 </footer>
 
 <script>
-  // --- generate a layered waveform path (evokes ASR / EEG signal work) ---
-  function buildWave(id, amp, freq, points, seed){
-    const w = 1200, h = 150, mid = h * 0.62;
-    let d = `M 0 ${mid}`;
-    for(let x = 0; x <= w; x += w/points){
-      const y = mid + Math.sin((x/w)*freq*Math.PI*2 + seed) * amp * (0.4 + Math.random()*0.6);
-      d += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
-    }
-    document.getElementById(id).setAttribute('d', d);
+  // ---- generate lightweight abstract SVG visuals per project domain ----
+  function el(tag, attrs){
+    const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    for(const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
   }
-  buildWave('wavepath', 26, 9, 90, 1.2);
-  buildWave('wavepath2', 14, 15, 130, 3.4);
 
-  // --- scroll reveal ---
+  // MFCC-style grid (project 02)
+  (function(){
+    const g = document.getElementById('mfcc-grid');
+    const cols = 24, rows = 12, cw = 400/cols, ch = 300/rows;
+    for(let i=0;i<cols;i++){
+      for(let j=0;j<rows;j++){
+        const v = Math.random();
+        const r = el('rect', { x:i*cw, y:j*ch, width:cw-1, height:ch-1,
+          fill:'#ff5a36', opacity: (v*0.55).toFixed(2) });
+        g.appendChild(r);
+      }
+    }
+  })();
+
+  // Cell classification: scattered circles (project 03)
+  (function(){
+    const g = document.getElementById('cell-grid');
+    const colors = ['#ff5a36','#8f8d87','#f2f1ed'];
+    for(let i=0;i<26;i++){
+      const cx = 20 + Math.random()*360;
+      const cy = 20 + Math.random()*260;
+      const r = 8 + Math.random()*22;
+      const c = el('circle', { cx, cy, r, fill:'none',
+        stroke: colors[i%3], 'stroke-width':1.4, opacity:0.55 });
+      g.appendChild(c);
+    }
+  })();
+
+  // Diffusion noise field (project 04)
+  (function(){
+    const g = document.getElementById('diffusion-grid');
+    for(let i=0;i<900;i++){
+      const x = Math.random()*400, y = Math.random()*300;
+      const r = Math.random()*1.6;
+      const c = el('circle', { cx:x, cy:y, r, fill:'#f2f1ed', opacity:(Math.random()*0.5).toFixed(2) });
+      g.appendChild(c);
+    }
+    for(let i=0;i<40;i++){
+      const x = Math.random()*400, y = Math.random()*300, r = 10+Math.random()*50;
+      const c = el('circle', { cx:x, cy:y, r, fill:'none', stroke:'#ff5a36', 'stroke-width':0.6, opacity:0.3 });
+      g.appendChild(c);
+    }
+  })();
+
+  // EEG waveform lines (project 05)
+  (function(){
+    const g = document.getElementById('eeg-grid');
+    const colors = ['#ff5a36','#8f8d87','#f2f1ed','#ff5a36'];
+    for(let row=0; row<4; row++){
+      let d = `M 0 ${40 + row*65}`;
+      for(let x=0; x<=400; x+=8){
+        const y = 40 + row*65 + Math.sin(x*0.08 + row*2)*14*Math.random();
+        d += ` L ${x} ${y.toFixed(1)}`;
+      }
+      const p = el('path', { d, fill:'none', stroke: colors[row], 'stroke-width':1.3, opacity:0.6 });
+      g.appendChild(p);
+    }
+  })();
+
+  // Solar forecasting bar/line chart (project 06)
+  (function(){
+    const g = document.getElementById('solar-grid');
+    const n = 18;
+    for(let i=0;i<n;i++){
+      const h = 20 + Math.random()*180;
+      const x = i*(400/n);
+      const r = el('rect', { x:x+4, y:280-h, width:(400/n)-8, height:h, fill:'#ff5a36', opacity:0.18 });
+      g.appendChild(r);
+    }
+    let d = `M 0 ${280 - Math.random()*150}`;
+    for(let x=0;x<=400;x+=20){
+      d += ` L ${x} ${(260 - Math.random()*160).toFixed(1)}`;
+    }
+    const p = el('path', { d, fill:'none', stroke:'#f2f1ed', 'stroke-width':1.4, opacity:0.7 });
+    g.appendChild(p);
+  })();
+
+  // ---- scroll reveal ----
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if(e.isIntersecting){
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
   revealEls.forEach(el => io.observe(el));
 </script>
 
