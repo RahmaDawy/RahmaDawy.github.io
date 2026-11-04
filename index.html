@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rahma Dawy — AI &amp; Machine Learning Engineer</title>
 <meta name="description" content="Rahma Dawy: AI & Data Science student building agentic AI, speech recognition, computer vision and generative AI systems end to end.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='10' r='6' fill='%23D97757'/%3E%3Cpath d='M60 26V14' stroke='%231F1E1D' stroke-width='4'/%3E%3Crect x='14' y='26' width='92' height='84' rx='28' fill='%23FBF8F2' stroke='%231F1E1D' stroke-width='5'/%3E%3Crect x='28' y='42' width='64' height='50' rx='18' fill='%231F1E1D'/%3E%3Ccircle cx='46' cy='64' r='8' fill='%23D97757'/%3E%3Ccircle cx='74' cy='64' r='8' fill='%23D97757'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='10' r='6' fill='%232563EB'/%3E%3Cpath d='M60 26V14' stroke='%230F1B33' stroke-width='4'/%3E%3Crect x='14' y='26' width='92' height='84' rx='28' fill='%23F8FBFF' stroke='%230F1B33' stroke-width='5'/%3E%3Crect x='28' y='42' width='64' height='50' rx='18' fill='%230F1B33'/%3E%3Ccircle cx='46' cy='64' r='8' fill='%2338BDF8'/%3E%3Ccircle cx='74' cy='64' r='8' fill='%2338BDF8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F4EFE6; --card:#FBF8F2; --tint:#EDE5D6; --ink:#1F1E1D; --dim:#6B665D; --faint:#A39D90;
-  --line:rgba(31,30,29,.12); --accent:#D97757; --deep:#C15F3C;
+  --bg:#EEF4FC; --card:#F8FBFF; --tint:#DCE8F8; --ink:#0F1B33; --dim:#4F5F7C; --faint:#8796B2;
+  --line:rgba(15,27,51,.12); --accent:#2563EB; --deep:#1D4ED8; --sky:#38BDF8;
   --display:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -20,12 +20,13 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--accent);color:#fff}
 a{color:inherit;text-decoration:none}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 img{display:block;max-width:100%}
 .wrap{max-width:1160px;margin:0 auto;padding:0 36px}
 @media(max-width:640px){.wrap{padding:0 20px}}
 
 /* nav */
-header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(244,239,230,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(238,244,252,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 nav{display:flex;justify-content:space-between;align-items:center;height:68px}
 .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:20px;font-weight:600}
 .brand svg{width:34px;height:34px}
@@ -35,26 +36,26 @@ nav{display:flex;justify-content:space-between;align-items:center;height:68px}
 
 /* buttons */
 .btn{font:500 13px var(--mono);padding:14px 26px;border-radius:100px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);transition:.25s}
-.btn-p{background:var(--accent);border-color:var(--accent);color:#fff}
-.btn-p:hover{background:var(--deep);transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(193,95,60,.55)}
+.btn-p{background:linear-gradient(135deg,#3B82F6,#1D4ED8);border-color:var(--deep);color:#fff}
+.btn-p:hover{background:linear-gradient(135deg,#2563EB,#1E40AF);transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(29,78,216,.55)}
 .btn-g{background:var(--card)}
 .btn-g:hover{border-color:var(--accent);color:var(--deep);transform:translateY(-2px)}
 
 /* hero */
-.hero{min-height:100svh;display:flex;align-items:center;padding:130px 0 80px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;width:720px;height:720px;right:-220px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(217,119,87,.28),rgba(217,119,87,0) 68%)}
+.hero{min-height:100svh;display:flex;align-items:center;padding:130px 0 80px;position:relative;overflow:hidden;background:linear-gradient(180deg,#F4F8FE 0%,var(--bg) 100%)}
+.hero::before{content:"";position:absolute;width:720px;height:720px;right:-220px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.30),rgba(56,189,248,.10) 45%,rgba(37,99,235,0) 68%)}
 .bot{position:absolute;right:max(4%,calc(50% - 540px));top:50%;width:min(340px,32vw);aspect-ratio:1;margin-top:-170px}
-.bot-fig{width:100%;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 26px 30px rgba(193,95,60,.25))}
+.bot-fig{width:100%;animation:float 5s ease-in-out infinite;filter:drop-shadow(0 26px 30px rgba(29,78,216,.28))}
 .bot-fig svg{width:100%;height:100%}
 .eyes{transform-origin:60px 55px;animation:blink 5s infinite}
 @keyframes float{50%{transform:translateY(-16px) rotate(1.5deg)}}
 @keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
-.sk{position:absolute;font:500 12px var(--mono);background:var(--card);color:var(--deep);border:1px solid var(--line);padding:7px 14px;border-radius:100px;box-shadow:0 8px 20px -10px rgba(31,30,29,.3);animation:float 6s ease-in-out infinite}
+.sk{position:absolute;font:500 12px var(--mono);background:var(--card);color:var(--deep);border:1px solid var(--line);padding:7px 14px;border-radius:100px;box-shadow:0 8px 20px -10px rgba(15,27,51,.3);animation:float 6s ease-in-out infinite}
 .s1{left:-14%;top:12%}.s2{right:-12%;top:6%;animation-delay:-1.5s}.s3{left:-22%;top:56%;animation-delay:-3s}.s4{right:-16%;top:48%;animation-delay:-4s}.s5{left:20%;bottom:-8%;animation-delay:-2s}
 @media(max-width:1000px){.bot{display:none}}
 .hero .wrap{position:relative}
 .eyebrow{font:500 12.5px var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--deep);display:flex;align-items:center;gap:12px}
-.eyebrow::before{content:"";width:34px;height:2px;background:var(--accent);border-radius:2px}
+.eyebrow::before{content:"";width:34px;height:2px;background:linear-gradient(90deg,var(--accent),var(--sky));border-radius:2px}
 h1{font:500 clamp(44px,7.6vw,108px)/1 var(--display);letter-spacing:-.025em;max-width:13ch;margin:26px 0 32px}
 h1 em{font-style:italic;color:var(--accent)}
 .sub{max-width:54ch;font-size:18px;color:var(--dim)}
@@ -76,17 +77,17 @@ h2{font:500 clamp(32px,4.4vw,56px)/1.06 var(--display);letter-spacing:-.015em;ma
 .about p{color:var(--dim);font-size:16.5px;margin-bottom:18px;max-width:58ch}
 .about strong{color:var(--ink);font-weight:600}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px;transition:.3s}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px;transition:.3s;box-shadow:0 12px 28px -22px rgba(29,78,216,.45)}
 .stat:hover{transform:translateY(-4px);border-color:var(--accent)}
 .stat b{display:block;font:500 40px var(--display);color:var(--accent);line-height:1.1}
 .stat span{font:400 11.5px var(--mono);color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
 
 /* walking robot */
-.track{position:relative;height:200px;margin-top:64px;border-bottom:2px dashed rgba(31,30,29,.25)}
+.track{position:relative;height:200px;margin-top:64px;border-bottom:2px dashed rgba(15,27,51,.25)}
 .walker{position:absolute;bottom:-2px;left:0;width:96px;height:160px;animation:walk 18s ease-in-out infinite}
 .flip{width:100%;height:100%;animation:turn 18s ease-in-out infinite}
 .walker svg{width:100%;height:100%;overflow:visible}
-.say{position:absolute;left:50%;top:-34px;transform:translateX(-30%);white-space:nowrap;font:500 12px var(--mono);background:var(--card);color:var(--deep);border:1px solid var(--line);padding:7px 14px;border-radius:14px;box-shadow:0 8px 20px -10px rgba(31,30,29,.3);animation:say 3s ease-in-out infinite}
+.say{position:absolute;left:50%;top:-34px;transform:translateX(-30%);white-space:nowrap;font:500 12px var(--mono);background:var(--card);color:var(--deep);border:1px solid var(--line);padding:7px 14px;border-radius:14px;box-shadow:0 8px 20px -10px rgba(15,27,51,.3);animation:say 3s ease-in-out infinite}
 .say::after{content:"";position:absolute;left:22px;bottom:-6px;width:10px;height:10px;background:var(--card);border:solid var(--line);border-width:0 1px 1px 0;transform:rotate(45deg)}
 @keyframes say{50%{transform:translate(-30%,-6px)}}
 @keyframes walk{0%{left:0}44%,50%{left:calc(100% - 96px)}94%,100%{left:0}}
@@ -101,7 +102,7 @@ h2{font:500 clamp(32px,4.4vw,56px)/1.06 var(--display);letter-spacing:-.015em;ma
 .armL{transform-origin:27.5px 102px;animation:swing .6s ease-in-out infinite alternate}
 @keyframes swing{from{transform:rotate(14deg)}to{transform:rotate(-14deg)}}
 .ping{animation:glow 1.4s ease-in-out infinite}
-@keyframes glow{50%{fill:#F4B79F}}
+@keyframes glow{50%{fill:#93C5FD}}
 
 /* work */
 .work-band{background:var(--card);border-block:1px solid var(--line)}
@@ -109,8 +110,8 @@ h2{font:500 clamp(32px,4.4vw,56px)/1.06 var(--display);letter-spacing:-.015em;ma
 .proj:first-child{padding-top:0}.proj:last-child{border:0;padding-bottom:0}
 .proj.rev .vis{order:2}
 @media(max-width:860px){.proj{grid-template-columns:1fr;gap:24px}.proj.rev .vis{order:0}}
-.vis{position:relative;aspect-ratio:4/3;background:var(--tint);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.4s}
-.proj:hover .vis{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 24px 50px -24px rgba(31,30,29,.35)}
+.vis{position:relative;aspect-ratio:4/3;background:linear-gradient(145deg,#E6EFFC,var(--tint));border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.4s}
+.proj:hover .vis{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 24px 50px -24px rgba(15,27,51,.4)}
 .vis img,.vis svg{width:100%;height:100%}
 .vis img{object-fit:cover;object-position:top}
 .badge{position:absolute;top:14px;left:14px;z-index:2;font:500 10.5px var(--mono);color:var(--deep);background:var(--card);border:1px solid var(--line);padding:5px 11px;border-radius:100px}
@@ -119,7 +120,7 @@ h2{font:500 clamp(32px,4.4vw,56px)/1.06 var(--display);letter-spacing:-.015em;ma
 .proj h3{font:500 clamp(23px,2.7vw,32px)/1.15 var(--display);margin-bottom:16px}
 .desc{color:var(--dim);font-size:15px;margin-bottom:20px;max-width:54ch}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.chips span{font:500 11.5px var(--mono);background:rgba(217,119,87,.13);color:var(--deep);padding:6px 12px;border-radius:100px}
+.chips span{font:500 11.5px var(--mono);background:rgba(37,99,235,.10);color:var(--deep);padding:6px 12px;border-radius:100px}
 .plinks{display:flex;gap:20px;flex-wrap:wrap}
 .plinks a{font:500 13px var(--mono);border-bottom:2px solid var(--accent);padding-bottom:2px;transition:.2s}
 .plinks a:hover{color:var(--deep);letter-spacing:.02em}
@@ -127,6 +128,7 @@ h2{font:500 clamp(32px,4.4vw,56px)/1.06 var(--display);letter-spacing:-.015em;ma
 /* focus */
 .focus{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
 .fcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 28px;transition:.3s;position:relative;overflow:hidden}
+.fcard::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--accent),var(--sky))}
 .fcard:hover{transform:translateY(-6px);border-color:var(--accent)}
 .fcard i{font:400 13px var(--mono);color:var(--accent);font-style:normal}
 .fcard h3{font:500 23px var(--display);margin:46px 0 12px}
@@ -144,15 +146,16 @@ h2{font:500 clamp(32px,4.4vw,56px)/1.06 var(--display);letter-spacing:-.015em;ma
 .exp li::marker{color:var(--accent)}
 
 /* contact */
-.contact{background:var(--ink);color:#F4EFE6;border-radius:36px 36px 0 0;margin-top:20px}
-.contact .eyebrow{color:var(--accent)}
+.contact{background:linear-gradient(165deg,#0F1B33 0%,#14285A 100%);color:#EEF4FC;border-radius:36px 36px 0 0;margin-top:20px}
+.contact .eyebrow{color:var(--sky)}
+.contact .eyebrow::before{background:var(--sky)}
 .contact h2{font-size:clamp(40px,7.4vw,92px);line-height:1;max-width:13ch;margin-top:22px}
-.contact h2 em{font-style:italic;color:var(--accent)}
-.crow{margin-top:52px;padding-top:32px;border-top:1px solid rgba(244,239,230,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px}
-.contact .btn-g{background:transparent;color:#F4EFE6;border-color:rgba(244,239,230,.25)}
-.contact .btn-g:hover{border-color:var(--accent);color:var(--accent)}
-.meta{font:400 12.5px var(--mono);color:#a39d90;align-self:center}
-footer{background:var(--ink);color:#a39d90;font:400 12px var(--mono);padding:26px 0 40px}
+.contact h2 em{font-style:italic;color:#60A5FA}
+.crow{margin-top:52px;padding-top:32px;border-top:1px solid rgba(238,244,252,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:28px}
+.contact .btn-g{background:transparent;color:#EEF4FC;border-color:rgba(238,244,252,.25)}
+.contact .btn-g:hover{border-color:var(--sky);color:var(--sky)}
+.meta{font:400 12.5px var(--mono);color:#9AAAC6;align-self:center}
+footer{background:#14285A;color:#9AAAC6;font:400 12px var(--mono);padding:26px 0 40px}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
@@ -160,12 +163,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <body>
 
 <header><nav class="wrap">
-  <a class="brand" href="#top"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M60 26V14" stroke="#1F1E1D" stroke-width="3"/><circle cx="60" cy="10" r="5.5" fill="#D97757"/><rect x="9" y="48" width="11" height="22" rx="5.5" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><rect x="100" y="48" width="11" height="22" rx="5.5" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><rect x="20" y="26" width="80" height="62" rx="22" fill="#FBF8F2" stroke="#1F1E1D" stroke-width="3"/><rect x="30" y="38" width="60" height="38" rx="14" fill="#1F1E1D"/><g class="eyes"><circle cx="47" cy="55" r="6" fill="#D97757"/><circle cx="73" cy="55" r="6" fill="#D97757"/></g><path d="M51 67Q60 74 69 67" stroke="#D97757" stroke-width="3"/><rect x="34" y="94" width="52" height="22" rx="10" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><circle cx="60" cy="105" r="4" fill="#FBF8F2"/></svg>Rahma Dawy</a>
+  <a class="brand" href="#top"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M60 26V14" stroke="#0F1B33" stroke-width="3"/><circle cx="60" cy="10" r="5.5" fill="#2563EB"/><rect x="9" y="48" width="11" height="22" rx="5.5" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><rect x="100" y="48" width="11" height="22" rx="5.5" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><rect x="20" y="26" width="80" height="62" rx="22" fill="#F8FBFF" stroke="#0F1B33" stroke-width="3"/><rect x="30" y="38" width="60" height="38" rx="14" fill="#0F1B33"/><g class="eyes"><circle cx="47" cy="55" r="6" fill="#38BDF8"/><circle cx="73" cy="55" r="6" fill="#38BDF8"/></g><path d="M51 67Q60 74 69 67" stroke="#38BDF8" stroke-width="3"/><rect x="34" y="94" width="52" height="22" rx="10" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><circle cx="60" cy="105" r="4" fill="#F8FBFF"/></svg>Rahma Dawy</a>
   <div class="links"><a href="#about">About</a><a href="#work">Work</a><a href="#focus">Focus</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
 </nav></header>
 
 <div class="hero" id="top">
-  <div class="bot" aria-hidden="true"><div class="bot-fig"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M60 26V14" stroke="#1F1E1D" stroke-width="3"/><circle cx="60" cy="10" r="5.5" fill="#D97757"/><rect x="9" y="48" width="11" height="22" rx="5.5" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><rect x="100" y="48" width="11" height="22" rx="5.5" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><rect x="20" y="26" width="80" height="62" rx="22" fill="#FBF8F2" stroke="#1F1E1D" stroke-width="3"/><rect x="30" y="38" width="60" height="38" rx="14" fill="#1F1E1D"/><g class="eyes"><circle cx="47" cy="55" r="6" fill="#D97757"/><circle cx="73" cy="55" r="6" fill="#D97757"/></g><path d="M51 67Q60 74 69 67" stroke="#D97757" stroke-width="3"/><rect x="34" y="94" width="52" height="22" rx="10" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><circle cx="60" cy="105" r="4" fill="#FBF8F2"/></svg></div><span class="sk s1">PyTorch</span><span class="sk s2">LLM agents</span><span class="sk s3">FastAPI</span><span class="sk s4">Whisper</span><span class="sk s5">Docker</span></div>
+  <div class="bot" aria-hidden="true"><div class="bot-fig"><svg viewBox="0 0 120 120" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M60 26V14" stroke="#0F1B33" stroke-width="3"/><circle cx="60" cy="10" r="5.5" fill="#2563EB"/><rect x="9" y="48" width="11" height="22" rx="5.5" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><rect x="100" y="48" width="11" height="22" rx="5.5" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><rect x="20" y="26" width="80" height="62" rx="22" fill="#F8FBFF" stroke="#0F1B33" stroke-width="3"/><rect x="30" y="38" width="60" height="38" rx="14" fill="#0F1B33"/><g class="eyes"><circle cx="47" cy="55" r="6" fill="#38BDF8"/><circle cx="73" cy="55" r="6" fill="#38BDF8"/></g><path d="M51 67Q60 74 69 67" stroke="#38BDF8" stroke-width="3"/><rect x="34" y="94" width="52" height="22" rx="10" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><circle cx="60" cy="105" r="4" fill="#F8FBFF"/></svg></div><span class="sk s1">PyTorch</span><span class="sk s2">LLM agents</span><span class="sk s3">FastAPI</span><span class="sk s4">Whisper</span><span class="sk s5">Docker</span></div>
   <div class="wrap">
     <div class="eyebrow">AI &amp; Data Science &mdash; E-JUST, Alexandria</div>
     <h1>I build models that <em>listen, see,</em> and predict.</h1>
@@ -193,7 +196,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <div class="stat"><b>0.986</b><span>AUC-ROC, blood cell classifier</span></div>
     </div>
   </div>
-<div class="track reveal" aria-hidden="true"><div class="walker"><span class="say">Hello, world!</span><div class="flip"><svg viewBox="0 0 120 160" fill="none" stroke-linecap="round" stroke-linejoin="round"><g class="legB"><rect x="55" y="126" width="12" height="22" rx="6" fill="#1F1E1D"/><rect x="52" y="144" width="20" height="9" rx="4.5" fill="#D97757" stroke="#1F1E1D" stroke-width="2.5"/></g><g class="legF"><rect x="39" y="126" width="12" height="22" rx="6" fill="#1F1E1D"/><rect x="36" y="144" width="20" height="9" rx="4.5" fill="#D97757" stroke="#1F1E1D" stroke-width="2.5"/></g><g class="bob"><g class="armL"><rect x="22" y="98" width="11" height="28" rx="5.5" fill="#FBF8F2" stroke="#1F1E1D" stroke-width="3"/></g><path d="M60 26V14" stroke="#1F1E1D" stroke-width="3"/><circle cx="60" cy="10" r="5.5" fill="#D97757" class="ping"/><rect x="9" y="46" width="11" height="22" rx="5.5" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><rect x="100" y="46" width="11" height="22" rx="5.5" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><rect x="20" y="26" width="80" height="62" rx="22" fill="#FBF8F2" stroke="#1F1E1D" stroke-width="3"/><rect x="30" y="38" width="60" height="38" rx="14" fill="#1F1E1D"/><g class="eyes"><circle cx="47" cy="55" r="6" fill="#D97757"/><circle cx="73" cy="55" r="6" fill="#D97757"/></g><path d="M51 67Q60 75 69 67" stroke="#D97757" stroke-width="3"/><rect x="34" y="94" width="52" height="36" rx="12" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/><circle cx="60" cy="112" r="5" fill="#FBF8F2" stroke="#1F1E1D" stroke-width="2"/><g class="armR"><rect x="87" y="98" width="11" height="28" rx="5.5" fill="#FBF8F2" stroke="#1F1E1D" stroke-width="3"/><circle cx="92.5" cy="126" r="7" fill="#D97757" stroke="#1F1E1D" stroke-width="3"/></g></g></svg></div></div></div>
+<div class="track reveal" aria-hidden="true"><div class="walker"><span class="say">Hello, world!</span><div class="flip"><svg viewBox="0 0 120 160" fill="none" stroke-linecap="round" stroke-linejoin="round"><g class="legB"><rect x="55" y="126" width="12" height="22" rx="6" fill="#0F1B33"/><rect x="52" y="144" width="20" height="9" rx="4.5" fill="#2563EB" stroke="#0F1B33" stroke-width="2.5"/></g><g class="legF"><rect x="39" y="126" width="12" height="22" rx="6" fill="#0F1B33"/><rect x="36" y="144" width="20" height="9" rx="4.5" fill="#2563EB" stroke="#0F1B33" stroke-width="2.5"/></g><g class="bob"><g class="armL"><rect x="22" y="98" width="11" height="28" rx="5.5" fill="#F8FBFF" stroke="#0F1B33" stroke-width="3"/></g><path d="M60 26V14" stroke="#0F1B33" stroke-width="3"/><circle cx="60" cy="10" r="5.5" fill="#2563EB" class="ping"/><rect x="9" y="46" width="11" height="22" rx="5.5" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><rect x="100" y="46" width="11" height="22" rx="5.5" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><rect x="20" y="26" width="80" height="62" rx="22" fill="#F8FBFF" stroke="#0F1B33" stroke-width="3"/><rect x="30" y="38" width="60" height="38" rx="14" fill="#0F1B33"/><g class="eyes"><circle cx="47" cy="55" r="6" fill="#38BDF8"/><circle cx="73" cy="55" r="6" fill="#38BDF8"/></g><path d="M51 67Q60 75 69 67" stroke="#38BDF8" stroke-width="3"/><rect x="34" y="94" width="52" height="36" rx="12" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/><circle cx="60" cy="112" r="5" fill="#F8FBFF" stroke="#0F1B33" stroke-width="2"/><g class="armR"><rect x="87" y="98" width="11" height="28" rx="5.5" fill="#F8FBFF" stroke="#0F1B33" stroke-width="3"/><circle cx="92.5" cy="126" r="7" fill="#2563EB" stroke="#0F1B33" stroke-width="3"/></g></g></svg></div></div></div>
 </div></section>
 
 <section id="work" class="work-band"><div class="wrap">
@@ -220,6 +223,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
     <div class="exp"><time>Aug &ndash; Sep 2024<br>Remote</time><div>
       <h3>HCIA DataCom Intern</h3><div class="org">ERI / Huawei</div>
       <ul><li>Completed an intensive 80-hour program on network fundamentals; configured routing, switching, VLANs, TCP/IP and OSPF on Huawei infrastructure.</li><li>Earned HCIA DataCom V1 certification.</li></ul></div></div>
+    <div class="exp"><time>1 Year<br>Freelance</time><div>
+      <h3>WordPress Website Designer</h3><div class="org">Tajamat</div>
+      <ul><li>Designed and built WordPress websites for clients on a freelance basis.</li></ul></div></div>
   </div>
 </div></section>
 
@@ -239,21 +245,21 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <footer><div class="wrap"><span>&copy; 2026 Rahma Dawy</span><span>Built with signal, not noise.</span></div></footer>
 
 <script>
-const R=(a,b)=>a+Math.random()*(b-a), A='#D97757', K='#1F1E1D';
+const R=(a,b)=>a+Math.random()*(b-a), A='#2563EB', K='#0F1B33';
 const svg=(c)=>`<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">${c}</svg>`;
 const V={
   img:()=>`<img src="assets/whisper-demo.png" alt="Egyptian Arabic speech-to-text Gradio demo" onerror="this.style.display='none'">`,
   agents:()=>{const n=[['Planner',30,34],['Researcher',230,34],['Writer',230,206],['Editor',30,206]];
-    const box=n.map(([t,x,y],i)=>`<rect x="${x}" y="${y}" width="140" height="60" rx="14" fill="#FBF8F2" stroke="${i==3?A:K}" stroke-opacity="${i==3?1:.25}" stroke-width="1.6"/><text x="${x+70}" y="${y+36}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="${K}">${t}</text>`).join('');
+    const box=n.map(([t,x,y],i)=>`<rect x="${x}" y="${y}" width="140" height="60" rx="14" fill="#F8FBFF" stroke="${i==3?A:K}" stroke-opacity="${i==3?1:.25}" stroke-width="1.6"/><text x="${x+70}" y="${y+36}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="${K}">${t}</text>`).join('');
     return svg(`<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="${A}"/></marker></defs>
     <g stroke="${A}" stroke-width="2" fill="none" marker-end="url(#ar)"><path d="M170 64H226"/><path d="M300 94V202"/><path d="M226 236H174"/></g>
     <path d="M100 202V98Q100 70 128 70H226" stroke="${A}" stroke-width="2" stroke-dasharray="5 5" fill="none" marker-end="url(#ar)"/>
-    <text x="108" y="150" font-family="IBM Plex Mono,monospace" font-size="11" fill="#C15F3C">critique + rewrite</text>${box}`)},
+    <text x="108" y="150" font-family="IBM Plex Mono,monospace" font-size="11" fill="#1D4ED8">critique + rewrite</text>${box}`)},
   mfcc:()=>{let s='';for(let i=0;i<24;i++)for(let j=0;j<12;j++)s+=`<rect x="${i*400/24}" y="${j*25}" width="15.6" height="24" rx="3" fill="${A}" opacity="${(R(.05,.75)).toFixed(2)}"/>`;return svg(s)},
   cells:()=>{let s='';for(let i=0;i<24;i++){const r=R(9,30),x=R(30,370),y=R(30,270);s+=`<circle cx="${x}" cy="${y}" r="${r}" fill="${i%3?'none':A}" fill-opacity=".22" stroke="${i%2?A:K}" stroke-opacity=".6" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="${r/3}" fill="${A}" opacity=".5"/>`}return svg(s)},
   diff:()=>{let s='';for(let i=0;i<700;i++)s+=`<circle cx="${R(0,400)}" cy="${R(0,300)}" r="${R(.4,2)}" fill="${K}" opacity="${R(.05,.4).toFixed(2)}"/>`;for(let i=1;i<6;i++)s+=`<circle cx="200" cy="150" r="${i*26}" fill="none" stroke="${A}" stroke-opacity="${(.7-i*.1).toFixed(2)}" stroke-width="1.6"/>`;return svg(s)},
   eeg:()=>{let s='';for(let r=0;r<5;r++){let d=`M0 ${35+r*55}`;for(let x=8;x<=400;x+=8)d+=` L${x} ${(35+r*55+Math.sin(x*.07+r*2)*R(4,16)).toFixed(1)}`;s+=`<path d="${d}" fill="none" stroke="${r%2?K:A}" stroke-opacity=".65" stroke-width="1.8"/>`}return svg(s)},
-  solar:()=>{let s='',d='M0 200';for(let i=0;i<18;i++){const h=R(30,190);s+=`<rect x="${i*22+4}" y="${280-h}" width="15" height="${h}" rx="4" fill="${A}" opacity=".28"/>`}for(let x=20;x<=400;x+=20)d+=` L${x} ${R(60,230).toFixed(0)}`;return svg(`${s}<circle cx="330" cy="60" r="30" fill="${A}" opacity=".5"/><path d="${d}" fill="none" stroke="${K}" stroke-width="2" opacity=".7"/>`)}
+  solar:()=>{let s='',d='M0 200';for(let i=0;i<18;i++){const h=R(30,190);s+=`<rect x="${i*22+4}" y="${280-h}" width="15" height="${h}" rx="4" fill="${A}" opacity=".28"/>`}for(let x=20;x<=400;x+=20)d+=` L${x} ${R(60,230).toFixed(0)}`;return svg(`${s}<circle cx="330" cy="60" r="30" fill="#38BDF8" opacity=".55"/><path d="${d}" fill="none" stroke="${K}" stroke-width="2" opacity=".7"/>`)}
 };
 const P=[
  {v:'agents',b:'Multi-agent',d:'Agentic AI · LLMs · FastAPI',t:'Reflective Research Agent — Multi-Agent System',
